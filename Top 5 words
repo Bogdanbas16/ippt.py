@@ -1,0 +1,41 @@
+текст = input("Введіть текст :  ")
+def ShowSorted(текст):
+    текст = текст.replace(".", " ")
+    текст = текст.replace(",", " ")
+    allWords = текст.split()
+    allWordsSingle = {}
+    for word in allWords:
+        allWordsSingle.update({word: allWords.count(word)})
+    keysSorted = []
+    for key in allWordsSingle:
+        keysSorted.append(key)
+    keysSorted.sort()
+    for key in keysSorted:
+        print(key)
+def ShowWordCount(текст):
+    текст = текст.replace(".", " ")
+    текст = текст.replace(",", " ")
+    allWords = текст.split()
+    allWordsSingle = {}
+    for word in allWords:
+        allWordsSingle.update({word: allWords.count(word)})
+    keysSorted = []
+    for key in allWordsSingle:
+        keysSorted.append(key)
+    keysSorted.sort()
+    for key in keysSorted:
+        print(f"{key} - {allWordsSingle[key]}")
+def ShowTextLenght(текст):
+    текст =текст.split()
+    текст.sort(key=len)
+    print(текст[-1:-6:-1])
+while True:
+    action = input("Виберіть дію:\n1 - Показати відсортовані слова. \n2 - Показати кількість слів. \n3 - Показати довжину слів. \n")
+    if action == "1":
+        ShowSorted(текст)
+    elif action == "2":
+        ShowWordCount(текст)
+    elif action == "3":
+        ShowTextLenght(текст)
+    else:
+        print("Invalid action!")
