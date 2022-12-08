@@ -1,0 +1,41 @@
+def most_frequent(List):
+    cnt = 0
+    word = List[0] #літери запускаються списком
+    for i in List: #цикл
+        cur = List.count(i) #сut() використовується для розділення елементів масиву на різні контейнери.
+        if(cur > cnt) and (len(i) > 3): # виводить слова які мають більше 3... символів
+            cnt = cur
+            word = i
+
+    for i in range(List.count(word)):#count()повертає кількість елементів із вказаним значенням.
+        mText.remove(word)#remove()видаляє вказаний елемент.
+    return word
+
+#####
+
+while True:
+    mText = input("\n [--->] Введіть текст: ").split()#split() = Розбиває рядок на список.
+
+    z = input(" \n[1]-Найповторюваніші:"" \n[2]-Словник:"" \n[3]-Найдовші слова:"" \n[4]-exit" " \n[--->] Введіть що зробити:")
+
+    if z.lower() == "1": # перша дія "1"
+        for i in range(5): # виводить лише 5 слів
+            print(most_frequent(mText)) #Використовується функція most_frequent.
+
+    elif z.lower() == "2": # друга дія "2"
+        mText.sort() # змінює список безпосередньо та не повертає жодних значень,
+        for i in range(len(mText)):
+            print(mText[i]) #виводить текст
+
+    elif z.lower() == "3": # третя дія "3"
+        mText = set(mText) # послідовність
+        mText = list(mText) # створює об’єкт списку.
+        mText.sort(reverse = True, key = len)
+        for i in range(5): # виводить тільки 5 слів
+            print(mText[i])
+
+    elif z.lower() == "4":
+        break
+
+    else:
+        print("Такого завдання не існує")
